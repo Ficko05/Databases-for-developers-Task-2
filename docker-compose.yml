@@ -1,7 +1,7 @@
 version: '3.8'
 services:
     assignment-2-database:
-        image: postgres:14.1-alpine
+        image: postgres:14
         restart: always
         environment:
             POSTGRES_USER: Root
