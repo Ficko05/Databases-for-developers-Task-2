@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+    assignment-2-database:
+        image: postgres:14.1-alpine
+        restart: always
+        environment:
+            POSTGRES_USER: Root
+            POSTGRES_PASSWORD: admin123
+        ports:
+            - 5438:5432
+        volumes:
+        - "database_assignment_2_data:/var/lib/postgres"
+
+volumes:
+    database_assignment_2_data:
+    
