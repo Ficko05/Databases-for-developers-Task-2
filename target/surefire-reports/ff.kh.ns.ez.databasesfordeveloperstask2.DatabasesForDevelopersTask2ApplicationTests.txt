@@ -1,4 +1,70 @@
 -------------------------------------------------------------------------------
 Test set: ff.kh.ns.ez.databasesfordeveloperstask2.DatabasesForDevelopersTask2ApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.746 s - in ff.kh.ns.ez.databasesfordeveloperstask2.DatabasesForDevelopersTask2ApplicationTests
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.812 s <<< FAILURE! - in ff.kh.ns.ez.databasesfordeveloperstask2.DatabasesForDevelopersTask2ApplicationTests
+contextLoads  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: Migration V2__create_data.sql failed
+------------------------------------
+SQL State  : 42P01
+Error Code : 0
+Message    : ERROR: relation "person" does not exist
+  Position: 13
+Location   : db/migration/V2__create_data.sql (C:\Users\filip\Desktop\SOFT\sem-2-soft\Database\Handin 2\target\classes\db\migration\V2__create_data.sql)
+Line       : 1
+Statement  : insert into person(name, phonenumber, cprnumber, address, email) values
+    ('Filip Filipovic','12312312', '021295-1234','lundebjerg 43 1b', 'test123@gmail.com'),
+    ('Ender Hansen','56756756', '031298-5678','ballerup 123', 'test1234@gmail.com'),
+    ('nur Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Peter Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Albtert Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Kimon Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Jonas Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Steven Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Thomas Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com')
+
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V2__create_data.sql failed
+------------------------------------
+SQL State  : 42P01
+Error Code : 0
+Message    : ERROR: relation "person" does not exist
+  Position: 13
+Location   : db/migration/V2__create_data.sql (C:\Users\filip\Desktop\SOFT\sem-2-soft\Database\Handin 2\target\classes\db\migration\V2__create_data.sql)
+Line       : 1
+Statement  : insert into person(name, phonenumber, cprnumber, address, email) values
+    ('Filip Filipovic','12312312', '021295-1234','lundebjerg 43 1b', 'test123@gmail.com'),
+    ('Ender Hansen','56756756', '031298-5678','ballerup 123', 'test1234@gmail.com'),
+    ('nur Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Peter Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Albtert Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Kimon Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Jonas Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Steven Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Thomas Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com')
+
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: 
+Migration V2__create_data.sql failed
+------------------------------------
+SQL State  : 42P01
+Error Code : 0
+Message    : ERROR: relation "person" does not exist
+  Position: 13
+Location   : db/migration/V2__create_data.sql (C:\Users\filip\Desktop\SOFT\sem-2-soft\Database\Handin 2\target\classes\db\migration\V2__create_data.sql)
+Line       : 1
+Statement  : insert into person(name, phonenumber, cprnumber, address, email) values
+    ('Filip Filipovic','12312312', '021295-1234','lundebjerg 43 1b', 'test123@gmail.com'),
+    ('Ender Hansen','56756756', '031298-5678','ballerup 123', 'test1234@gmail.com'),
+    ('nur Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Peter Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Albtert Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Kimon Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Jonas Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Steven Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com'),
+    ('Thomas Hansen','89089089', '121212-5678','Herlev 123', 'test12345@gmail.com')
+
+Caused by: org.postgresql.util.PSQLException: 
+ERROR: relation "person" does not exist
+  Position: 13
+
