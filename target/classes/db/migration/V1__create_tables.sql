@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS mydb.Prescriptions
     end_Date         DATE        NOT NULL DEFAULT CURRENT_DATE,
     reminder_Date    DATE        NULL     DEFAULT CURRENT_DATE,
     quantity_current INT         NOT NULL,
-    quanitty_end     INT         NOT NULL,
+    quantity_end     INT         NOT NULL,
     Doctor_idDoctor  INT         NOT NULL,
     PRIMARY KEY (idPrescriptions),
     CONSTRAINT fk_Prescriptions_Doctor1
@@ -77,10 +77,10 @@ CREATE TABLE IF NOT EXISTS mydb.Patient
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS mydb.Pharmacies
 (
-    idPharmacies           SERIAL      NOT NULL,
-    name                   VARCHAR(45) NOT NULL,
-    address                VARCHAR(45) NOT NULL,
-    idPharmacies_Inventory INT         NOT NULL,
+    idPharmacies SERIAL      NOT NULL,
+    name         VARCHAR(45) NOT NULL,
+    address      VARCHAR(45) NOT NULL,
+--     idPharmacies_Inventory INT         NOT NULL,
     PRIMARY KEY (idPharmacies)
 );
 --     CONSTRAINT fk_Pharmacies_Pharmacies_Inventory1
@@ -164,8 +164,8 @@ CREATE TABLE IF NOT EXISTS mydb.Role
     Admin             bool   NULL,
     patient           bool   NULL,
     doctor            bool   NULL,
-    Patient_idPatient INT    NOT NULL,
-    Doctor_idDoctor   INT    NOT NULL,
+    Patient_idPatient INT    NULL,
+    Doctor_idDoctor   INT    NULL,
     PRIMARY KEY (idrole),
     CONSTRAINT fk_Role_Patient1
         FOREIGN KEY (Patient_idPatient)

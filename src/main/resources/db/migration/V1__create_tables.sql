@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS mydb.Prescriptions
     end_Date         DATE        NOT NULL DEFAULT CURRENT_DATE,
     reminder_Date    DATE        NULL     DEFAULT CURRENT_DATE,
     quantity_current INT         NOT NULL,
-    quanitty_end     INT         NOT NULL,
+    quantity_end     INT         NOT NULL,
     Doctor_idDoctor  INT         NOT NULL,
     PRIMARY KEY (idPrescriptions),
     CONSTRAINT fk_Prescriptions_Doctor1

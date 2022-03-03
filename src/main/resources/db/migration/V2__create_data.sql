@@ -18,7 +18,7 @@ insert into mydb.doctor(name) VALUES
     ('docName6'),
     ('docName7');
 
-insert into mydb.prescriptions(medication_name, start_date, end_date, reminder_date, quantity_current, quanitty_end, doctor_iddoctor) VALUES
+insert into mydb.prescriptions(medication_name, start_date, end_date, reminder_date, quantity_current, quantity_end, doctor_iddoctor) VALUES
     ('Pfizer','2022-01-01','2022-02-01',CURRENT_DATE,5,5,1),
     ('Pills','2022-01-01','2022-02-01',CURRENT_DATE,5,5,1),
     ('Nova','2022-01-01','2022-02-01',CURRENT_DATE,5,5,1),
