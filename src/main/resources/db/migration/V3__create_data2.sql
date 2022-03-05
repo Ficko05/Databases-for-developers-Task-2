@@ -1,10 +1,3 @@
-insert into mydb.patient(prescriptions_idprescriptions, person_idperson)
-values (1, 1),
-       (2, 1),
-       (3, 3),
-       (4, 3);
-
-
 insert into mydb.patient_has_doctor(patient_idpatient, doctor_iddoctor)
 VALUES (1, 1),
        (2, 1),

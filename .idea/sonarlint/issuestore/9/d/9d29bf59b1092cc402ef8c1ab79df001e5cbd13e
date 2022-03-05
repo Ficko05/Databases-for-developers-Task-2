@@ -1,0 +1,10 @@
+
+ƒ
+java:S1128"aRemove this unused import 'org.springframework.data.jpa.repository.config.EnableJpaRepositories'.(²œ˜üÿÿÿÿ8´«ÛÖõ/
+H
+java:S1128	"+Remove this unused import 'java.util.Date'.(¸…¼ü8´«ÛÖõ/
+M
+java:S1128
+"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8“â¢àõ/
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ú·“úÿÿÿÿ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™Õõ‡

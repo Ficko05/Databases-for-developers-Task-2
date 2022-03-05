@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -23,12 +24,13 @@ public class Prescriptions {
 //    @JsonFormat(pattern = "yyy-mm-dd", shape = JsonFormat.Shape.STRING)
 //    @DateTimeFormat(pattern = "yyyy-mm-dd")
     @Column(name = "reminder_date")
-    private Date reminderDate;
+    private LocalDate reminderDate;
     private int quantity_current;
     private int quantity_end;
     @Column(name = "doctor_iddoctor")
     private int doctor_id;
-
+    @Column(name = "patient_idpatient")
+    private long patient_id;
 
 
 }

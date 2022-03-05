@@ -25,51 +25,55 @@ CREATE TABLE IF NOT EXISTS mydb.Doctor
     PRIMARY KEY (idDoctor)
 );
 
-
-
--- -----------------------------------------------------
--- Table `mydb`.`Prescriptions`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS mydb.Prescriptions
-(
-    idPrescriptions  SERIAL      NOT NULL,
-    medication_name  VARCHAR(45) NOT NULL,
-    start_Date       DATE        NOT NULL DEFAULT CURRENT_DATE,
-    end_Date         DATE        NOT NULL DEFAULT CURRENT_DATE,
-    reminder_Date    DATE        NULL     DEFAULT CURRENT_DATE,
-    quantity_current INT         NOT NULL,
-    quantity_end     INT         NOT NULL,
-    Doctor_idDoctor  INT         NOT NULL,
-    PRIMARY KEY (idPrescriptions),
-    CONSTRAINT fk_Prescriptions_Doctor1
-        FOREIGN KEY (Doctor_idDoctor)
-            REFERENCES mydb.Doctor (idDoctor)
-            ON DELETE NO ACTION
-            ON UPDATE NO ACTION
-);
-
-
-
 -- -----------------------------------------------------
 -- Table `mydb`.`Patient`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS mydb.Patient
 (
-    idPatient                     SERIAL NOT NULL,
-    Prescriptions_idPrescriptions INT    NOT NULL,
-    Person_idPerson               INT    NOT NULL,
+    idPatient       SERIAL NOT NULL,
+--     Prescriptions_idPrescriptions INT    NOT NULL,
+    Person_idPerson INT    NOT NULL,
     PRIMARY KEY (idPatient),
-    CONSTRAINT fk_Patient_Prescriptions1
-        FOREIGN KEY (Prescriptions_idPrescriptions)
-            REFERENCES mydb.Prescriptions (idPrescriptions)
-            ON DELETE NO ACTION
-            ON UPDATE NO ACTION,
     CONSTRAINT fk_Patient_Person1
         FOREIGN KEY (Person_idPerson)
             REFERENCES mydb.Person (idPerson)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
 );
+-- -----------------------------------------------------
+-- Table `mydb`.`Prescriptions`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS mydb.Prescriptions
+(
+    idPrescriptions   SERIAL      NOT NULL,
+    medication_name   VARCHAR(45) NOT NULL,
+    start_Date        DATE        NOT NULL DEFAULT CURRENT_DATE,
+    end_Date          DATE        NOT NULL DEFAULT CURRENT_DATE,
+    reminder_Date     DATE        NULL     DEFAULT CURRENT_DATE,
+    quantity_current  INT         NOT NULL,
+    quantity_end      INT         NOT NULL,
+    Doctor_idDoctor   INT         NOT NULL,
+    Patient_idPatient INT         NOT NULL,
+    PRIMARY KEY (idPrescriptions),
+    CONSTRAINT fk_Prescriptions_Doctor1
+        FOREIGN KEY (Doctor_idDoctor)
+            REFERENCES mydb.Doctor (idDoctor)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+    CONSTRAINT fk_Prescriptions_Patient1
+        FOREIGN KEY (Patient_idPatient)
+            REFERENCES mydb.Patient (idPatient)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION
+);
+
+
+
+-- ALTER TABLE mydb.Prescriptions
+--      ADD Patient_idPatient INT NOT NULL;
+--
+-- ALTER TABLE mydb.Prescriptions
+--     ADD CONSTRAINT fk_Prescriptions_Patient1 FOREIGN KEY (Patient_idPatient) REFERENCES mydb.Patient(idPatient) ON DELETE NO ACTION ON UPDATE NO ACTION ;
 
 
 -- -----------------------------------------------------
@@ -116,7 +120,6 @@ CREATE TABLE IF NOT EXISTS mydb.Patient_Journal
     Last_Accessed_By  VARCHAR(45) NULL,
     Patient_idPatient INT         NOT NULL,
     PRIMARY KEY (idPatient_Journal),
-
     CONSTRAINT fk_Patient_Journal_Patient1
         FOREIGN KEY (Patient_idPatient)
             REFERENCES mydb.Patient (idPatient)
@@ -186,8 +189,8 @@ CREATE TABLE IF NOT EXISTS mydb.Role
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS mydb.Pharmacies_has_Patient
 (
-    Pharmacies_idPharmacies SERIAL NOT NULL,
-    Patient_idPatient       INT    NOT NULL,
+    Pharmacies_idPharmacies INT NOT NULL,
+    Patient_idPatient       INT NOT NULL,
     PRIMARY KEY (Pharmacies_idPharmacies, Patient_idPatient),
     CONSTRAINT fk_Pharmacies_has_Patient_Pharmacies1
         FOREIGN KEY (Pharmacies_idPharmacies)
@@ -208,8 +211,8 @@ CREATE TABLE IF NOT EXISTS mydb.Pharmacies_has_Patient
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS mydb.Patient_has_Doctor
 (
-    Patient_idPatient SERIAL NOT NULL,
-    Doctor_idDoctor   INT    NOT NULL,
+    Patient_idPatient INT NOT NULL,
+    Doctor_idDoctor   INT NOT NULL,
     PRIMARY KEY (Patient_idPatient, Doctor_idDoctor),
 
     CONSTRAINT fk_Patient_has_Doctor_Patient1
@@ -224,4 +227,21 @@ CREATE TABLE IF NOT EXISTS mydb.Patient_has_Doctor
             ON UPDATE NO ACTION
 );
 
+
+CREATE TABLE IF NOT EXISTS mydb.Prescriptions_has_Patient
+(
+
+    Prescriptions_idPrescriptions INT NOT NULL,
+    Patient_idPatient             INT NOT NULL,
+    CONSTRAINT fk_Prescriptions_has_Patient_Prescriptions1
+        FOREIGN KEY (Prescriptions_idPrescriptions)
+            REFERENCES mydb.prescriptions (idprescriptions)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+    CONSTRAINT fk_Prescriptions_has_Patient_Patient1
+        FOREIGN KEY (Patient_idPatient)
+            REFERENCES mydb.patient (idpatient)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION
+);
 
