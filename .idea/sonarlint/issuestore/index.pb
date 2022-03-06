@@ -17,5 +17,3 @@ x
 Hsrc/main/java/ff/kh/ns/ez/databasesfordeveloperstask2/entity/Person.java,8\5\855f81ae660b59a933f57e2518dce61ba32b266f
 
 Osrc/main/java/ff/kh/ns/ez/databasesfordeveloperstask2/entity/Prescriptions.java,9\3\93496078d5edbc23876b3095fe40ae3185957cf8
-‘
-asrc/main/java/ff/kh/ns/ez/databasesfordeveloperstask2/DatabasesForDevelopersTask2Application.java,b\c\bcdfdf295ac02287efa57f17c3e7f5931e31fee7

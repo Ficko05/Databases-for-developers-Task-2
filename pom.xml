@@ -20,8 +20,7 @@
                         <artifactId>flyway-maven-plugin</artifactId>
                         <version>7.0.0</version>
                         <configuration>
-<!--                            <url>jdbc:postgresql://localhost:5438/postgres</url>-->
-                            <url>jdbc:postgresql://localhost:5432/postgres</url>
+                            <url>jdbc:postgresql://localhost:5438/postgres</url>
                             <user>Root</user>
                             <password>admin123</password>
                             <defaultSchema>mydb</defaultSchema>
