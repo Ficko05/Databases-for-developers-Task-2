@@ -1,6 +1,7 @@
 version: '3.8'
 services:
-    assignment-2-database:
+
+   assignment-2-database:
         image: postgres:14
         restart: always
         environment:
@@ -11,6 +12,28 @@ services:
         volumes:
         - "database_assignment_2_data:/var/lib/postgres"
 
+   assignment-2-services:
+    container_name: 'database_assignment_2'
+    restart: always
+    healthcheck:
+      test: curl --fail -s http://localhost:8080/Prescription/test/2022-03-06 || exit 1
+      interval: 1m30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+    ports:
+      - 9026:8080
+   
+    build:
+        context: .
+        dockerfile: Dockerfile
+    depends_on:
+        - assignment-2-database
+    environment:
+       - "SPRING_PROFILES_ACTIVE=docker"
+    
 volumes:
     database_assignment_2_data:
+    
+    
     

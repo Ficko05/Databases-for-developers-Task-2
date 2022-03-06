@@ -29,7 +29,7 @@ public class ScheduledTasks {
 
 
 //    @Scheduled(fixedRate = 20000)
-    @Scheduled(cron= "10 * * * * *")
+    @Scheduled(cron= "2 * * * * *")
     public void testMethod (){
         prescriptionService.getPrescriptionWithCurrentDateAndSendMail();
     }
