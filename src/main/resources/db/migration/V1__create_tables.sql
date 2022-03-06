@@ -4,12 +4,12 @@ CREATE SCHEMA IF NOT EXISTS mydb;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS mydb.Person
 (
-    idPerson    SERIAL      NOT NULL,
-    name        VARCHAR(45) NOT NULL,
-    phoneNumber VARCHAR(45) NOT NULL,
-    cprNumber   VARCHAR(45) NOT NULL,
-    address     VARCHAR(45) NULL,
-    email       VARCHAR(45) NULL,
+    idPerson    SERIAL             NOT NULL,
+    name        VARCHAR(45)        NOT NULL,
+    phoneNumber VARCHAR(45) UNIQUE NOT NULL,
+    cprNumber   VARCHAR(45) UNIQUE NOT NULL,
+    address     VARCHAR(45)        NULL,
+    email       VARCHAR(45)        NULL,
     PRIMARY KEY (idPerson)
 );
 
@@ -45,15 +45,15 @@ CREATE TABLE IF NOT EXISTS mydb.Patient
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS mydb.Prescriptions
 (
-    idPrescriptions   SERIAL      NOT NULL,
-    medication_name   VARCHAR(45) NOT NULL,
-    start_Date        DATE        NOT NULL DEFAULT CURRENT_DATE,
-    end_Date          DATE        NOT NULL DEFAULT CURRENT_DATE,
-    reminder_Date     DATE        NULL     DEFAULT CURRENT_DATE,
-    quantity_current  INT         NOT NULL,
-    quantity_end      INT         NOT NULL,
-    Doctor_idDoctor   INT         NOT NULL,
-    Patient_idPatient INT         NOT NULL,
+    idPrescriptions   SERIAL NOT NULL,
+    medication_name   TEXT   NOT NULL,
+    start_Date        DATE   NOT NULL DEFAULT CURRENT_DATE,
+    end_Date          DATE   NOT NULL DEFAULT CURRENT_DATE,
+    reminder_Date     DATE   NULL     DEFAULT CURRENT_DATE,
+    quantity_current  INT    NOT NULL,
+    quantity_end      INT    NOT NULL,
+    Doctor_idDoctor   INT    NOT NULL,
+    Patient_idPatient INT    NOT NULL,
     PRIMARY KEY (idPrescriptions),
     CONSTRAINT fk_Prescriptions_Doctor1
         FOREIGN KEY (Doctor_idDoctor)

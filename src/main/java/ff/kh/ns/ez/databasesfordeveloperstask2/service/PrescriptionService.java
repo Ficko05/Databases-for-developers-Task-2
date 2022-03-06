@@ -36,13 +36,12 @@ public class PrescriptionService {
     public void getPrescriptionWithCurrentDateAndSendMail() {
         LocalDate myObj = LocalDate.now();
         ArrayList<Prescriptions> perMail = prescriptionRepository.findPrescriptionsByReminderDate(myObj);
-        for(int i = 0; i < perMail.size(); i++){
+        for (int i = 0; i < perMail.size(); i++) {
             Patient patient = patientRepository.findPatientByIdPatient(perMail.get(1).getPatient_id());
             Person person = personRepository.findPersonByIdPerson(patient.getPerson_id());
-            mailSenderService.sendEmail(person.getEmail(), "Reminder", "your prescription " + perMail.get(i).getMedication_name() + " is about to be run out" );
+            mailSenderService.sendEmail(person.getEmail(), "Reminder", "your prescription " + perMail.get(i).getMedication_name() + " is about to be run out");
         }
     }
-
 
 
 }

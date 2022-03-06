@@ -1,0 +1,12 @@
+
+t	java:S116"ZRename this field "medication_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€’ÉÚúÿÿÿÿ
+i	java:S116"URename this field "start_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°ı³W
+m	java:S116"SRename this field "end_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½¸Ç¢ÿÿÿÿÿ
+p	java:S116"[Rename this field "quantity_current" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®÷ìß
+l	java:S116"WRename this field "quantity_end" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ‡§·
+n	java:S116"TRename this field "doctor_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùÚß‹ûÿÿÿÿ
+v	java:S116!"URename this field "patient_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹é³ûÿÿÿÿ8¹÷êŞõ/
+j
+java:S1128"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonFormat'.(ıÙè‹øÿÿÿÿ8ÿ‹ØÜõ/
+s
+java:S1128"QRemove this unused import 'org.springframework.format.annotation.DateTimeFormat'.(‡ˆôƒøÿÿÿÿ8ÿ‹ØÜõ/
